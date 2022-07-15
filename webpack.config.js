@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -7,7 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const production = process.env.NODE_ENV === 'production';
 
 module.exports = {
-    entry: { booking: path.resolve(__dirname, './src/index.js')},
+    entry: { booking: path.resolve(__dirname, './src/index.tsx')},
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: production ? '[name].[hash].js' : '[name].js',
@@ -15,7 +14,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
+                test: /\.(ts|tsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",
@@ -55,13 +54,13 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.scss']
+        extensions: ['.ts', '.tsx', '.js', '.scss']
     },
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             title: 'Travel && Booking',
-            template: './src/index.html',
+            template: path.join(__dirname, 'src', 'index.html'),
             // favicon: ""
         })
     ],
