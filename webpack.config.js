@@ -33,11 +33,11 @@ module.exports = {
                     }
                 }
             },
-            {
-                test: /\.tsx?$/,
-                use: 'ts-loader',
-                exclude: /node_modules/,
-            },
+            // {
+            //     test: /\.tsx?$/,
+            //     use: 'ts-loader',
+            //     exclude: /node_modules/,
+            // },
             {
                 test: /\.s(a|c)ss$/,
                 exclude: /node_modules/,
