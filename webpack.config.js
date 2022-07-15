@@ -6,15 +6,16 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const production = process.env.NODE_ENV === 'production';
 
 module.exports = {
-    entry: { booking: path.resolve(__dirname, './src/index.tsx')},
+    entry: path.resolve(__dirname, './src/index.tsx'),
+    devtool: 'inline-source-map',
     output: {
-        path: path.resolve(__dirname, './dist'),
-        filename: production ? '[name].[hash].js' : '[name].js',
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist'),
     },
     module: {
         rules: [
             {
-                test: /\.(ts|tsx)$/,
+                test: /\.(ts|js)x$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",
@@ -26,10 +27,16 @@ module.exports = {
                                     {
                                         runtime: 'automatic'
                                     }
-                                ]
+                                ],
+                                '@babel/preset-typescript',
                             ],
                     }
                 }
+            },
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
             },
             {
                 test: /\.s(a|c)ss$/,
@@ -54,13 +61,13 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.scss']
+        extensions: [ '.tsx', '.ts', '.js' ],
     },
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             title: 'Travel && Booking',
-            template: path.join(__dirname, 'src', 'index.html'),
+            template: path.resolve(__dirname, './src/index.html'),
             // favicon: ""
         })
     ],
