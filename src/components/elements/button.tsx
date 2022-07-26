@@ -11,7 +11,7 @@ const Button: FC<ButtonProps> = (props: ButtonProps) => {
     const {title, isDisabled} = props;
 
     return (
-           <button disabled={isDisabled}>
+           <button disabled={isDisabled} className=''>
                {title}
            </button>
     )
