@@ -2,10 +2,14 @@
   width: 100%;
 
   .headerLayout {
-    padding: 0 10%;
-    display: flex;
-    justify-content: space-between;
+    padding: 0 calc(10% + 4px);
     height: 80px;
-    align-items: center;
+
+    .headerContent {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+    }
   }
 }
