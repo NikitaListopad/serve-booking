@@ -1,6 +1,30 @@
 .mainHotel {
-    width: 60%;
-    border-radius: 2px;
-    box-shadow: antiquewhite;
-    border: 0.8px solid #000;
+  width: auto;
+  border-radius: 6px;
+  max-width: 245px;
+  background-color: rgba(242, 244, 247, 0.5);
+    padding: 4px;
+
+  .hotelPhoto {
+    border-radius: 6px;
+    width: 100%;
+  }
+
+  .description {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    .hotelTitleContainer {
+      margin: 0;
+      display: flex;
+      width: 100%;
+    }
+
+    .hotelPrice {
+      width: 100%;
+      display: flex;
+      margin: 5px 0 0 0;
+    }
+  }
 }

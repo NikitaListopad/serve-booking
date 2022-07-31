@@ -40,9 +40,10 @@ module.exports = {
                 }
             },
             {
-                test: /\.(sc|c)ss$/,
+                // test: /\.(sc|c)ss$/,
+                test: /\.s[ac]ss$/i,
                 exclude: /node_modules/,
-                use: ['style-loader', 'css-loader', 'postcss-loader'],
+                use: ['style-loader', 'css-loader', 'sass-loader'],
             },
         ]
     },

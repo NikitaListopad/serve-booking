@@ -1,13 +1,17 @@
 import React, {FC} from "react";
+import styles from './header.module.scss';
+
 
 const Header: FC = () => {
 
     return (
-        <div>
-            <div>Logo-Image</div>
-            <div>Navigation</div>
-            <div>Auth block</div>
-        </div>
+        <header className={styles.mainHeader}>
+            <div className={styles.headerLayout}>
+                <div>Logo-Image</div>
+                <div>Navigation</div>
+                <div>Auth block</div>
+            </div>
+        </header>
     )
 };
 

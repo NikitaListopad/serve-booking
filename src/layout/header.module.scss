@@ -1,0 +1,11 @@
+.mainHeader {
+  width: 100%;
+
+  .headerLayout {
+    padding: 0 10%;
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    align-items: center;
+  }
+}
