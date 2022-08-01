@@ -7,7 +7,7 @@ interface HotelPageProps {
     hotel: IHotel
 }
 
-const HotelPage: FC<HotelPageProps> = (props: HotelPageProps) => {
+const HotelBlock: FC<HotelPageProps> = (props: HotelPageProps) => {
 
     const {title, price, photo, id} = props.hotel;
 
@@ -23,4 +23,4 @@ const HotelPage: FC<HotelPageProps> = (props: HotelPageProps) => {
 }
 
 
-export default HotelPage;
+export default HotelBlock;

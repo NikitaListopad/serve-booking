@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import Header from "./layout/header";
-import HotelPage from "./components/hotelPage";
+import HotelBlock from "./components/hotelBlock";
 import Main from "./layout/main";
 import BaseForm from "./components/baseForm";
 import {HotelMocks} from "./mocks/hotelMocks";
+import HotelsList from "./components/hotelsList";
 
 const App = () => {
 
@@ -31,13 +32,7 @@ const App = () => {
                     handleChange={handleSearchChange}
                     inputValue={searchValue}
                 />
-                <ul>
-                    {hotels.map(hotel => {
-                        return (
-                            <HotelPage hotel={hotel} />
-                        )
-                    })}
-                </ul>
+               <HotelsList hotels={hotels} />
             </Main>
 
         </>
