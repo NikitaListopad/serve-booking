@@ -172,7 +172,7 @@ export class HotelMocks {
     }
 
     getFilterHotels = (isBigPrice: boolean, isBigTitle: boolean): IHotel[] => {
-            const hotels = this.generateHotelsArray(14);
+            const hotels = this.generateHotelsArray(15);
 
             if (isBigPrice) {
                     return hotels.filter(item => Number(item.price) > 500);
