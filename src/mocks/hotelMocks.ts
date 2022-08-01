@@ -170,4 +170,22 @@ export class HotelMocks {
 
             return hotels;
     }
+
+    getFilterHotels = (isBigPrice: boolean, isBigTitle: boolean): IHotel[] => {
+            const hotels = this.generateHotelsArray(14);
+
+            if (isBigPrice) {
+                    return hotels.filter(item => Number(item.price) > 500);
+            }
+
+            if (isBigTitle) {
+                    return hotels.filter(item => item.title.length > 5);
+            }
+
+            if (!isBigTitle && !isBigPrice) {
+                    return hotels;
+            }
+
+            return [];
+    }
 }
