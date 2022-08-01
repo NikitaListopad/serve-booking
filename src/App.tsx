@@ -1,21 +1,43 @@
-import React from 'react';
-import {useAppSelector} from "./hooks/reduxHooks";
+import React, {useState} from 'react';
 import Header from "./layout/header";
 import HotelPage from "./components/hotelPage";
 import Main from "./layout/main";
+import BaseForm from "./components/baseForm";
+import {HotelMocks} from "./mocks/hotelMocks";
 
 const App = () => {
 
-    const {hotels} = useAppSelector(state => state.hotels);
+    const [searchValue, setSearchValue] = useState('');
+
+    const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+    }
+
+    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault();
+
+        setSearchValue(e.target.value);
+    }
+
+    const hotels = new HotelMocks().generateHotelsArray(14);
 
     return (
         <>
             <Header />
             <Main>
-                <HotelPage title='First hotel'
-                           price='114'
-                           photo={'https://media-cdn.tripadvisor.com/media/photo-s/16/1a/ea/54/hotel-presidente-4s.jpg'}
+                <BaseForm
+                    name='first'
+                    handleSubmit={handleSearchSubmit}
+                    handleChange={handleSearchChange}
+                    inputValue={searchValue}
                 />
+                <ul>
+                    {hotels.map(hotel => {
+                        return (
+                            <HotelPage hotel={hotel} />
+                        )
+                    })}
+                </ul>
             </Main>
 
         </>

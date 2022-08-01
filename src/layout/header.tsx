@@ -18,7 +18,9 @@ const Header: FC = () => {
                                 fill="currentcolor"></path>
                         </svg>
                     </div>
-                    <div>Navigation</div>
+                    <div className={styles.headerSearch}>
+                        NavBlock
+                    </div>
                     <div>Auth block</div>
                 </div>
             </div>

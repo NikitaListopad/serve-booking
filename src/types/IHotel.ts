@@ -1,7 +1,6 @@
 export interface IHotel {
-    id: string;
-    name: string;
-    photos: [];
-    description: string;
-    price: number;
+    id: string,
+    title: string,
+    price: string,
+    photo: string,
 }

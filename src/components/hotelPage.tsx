@@ -1,24 +1,24 @@
 import React, {FC} from "react";
 import styles from './hotelPageStyles.module.scss'
+import {IHotel} from "../types/IHotel";
+
 
 interface HotelPageProps {
-    title: string,
-    price: string,
-    photo: string,
+    hotel: IHotel
 }
 
 const HotelPage: FC<HotelPageProps> = (props: HotelPageProps) => {
 
-    const {title, price, photo} = props;
+    const {title, price, photo, id} = props.hotel;
 
     return (
-        <div className={styles.mainHotel}>
+        <li className={styles.mainHotel} key={id}>
             <img src={photo} alt="hotel" className={styles.hotelPhoto}/>
             <div className={styles.description}>
                 <div className={styles.hotelTitleContainer}>{title}</div>
                 <p className={styles.hotelPrice}>${price} / night</p>
             </div>
-        </div>
+        </li>
     )
 }
 
