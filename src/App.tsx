@@ -1,11 +1,12 @@
 import React, {useMemo, useState} from 'react';
 import Header from "./layout/header";
-import HotelBlock from "./components/hotelBlock";
 import Main from "./layout/main";
-import BaseForm from "./components/baseForm";
 import {HotelMocks} from "./mocks/hotelMocks";
 import HotelsList from "./components/hotelsList";
 import HotelFilter from "./components/hotelsFilter";
+
+const mock = new HotelMocks()
+const mocks = mock.generateHotelsArray(15);
 
 const App = () => {
 
@@ -28,25 +29,19 @@ const App = () => {
         setIsPriceSelected(prev => !prev);
     }
 
-    const selectTitleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectTitleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {-
+
         setIsTitleSelected(prev => !prev);
     }
 
-    const hotels = useMemo(() => new HotelMocks().getFilterHotels(isPriceSelected, isTitleSelected), [isPriceSelected, isTitleSelected]);
-
+    const hotels = useMemo(() => mock.getFilterHotels(isPriceSelected, isTitleSelected, mocks), [isPriceSelected, isTitleSelected]);
 
     return (
         <>
             <Header />
             <Main>
-                <HotelFilter onPriceSelect={selectPriceFilter} onTitleSelect={selectTitleFilter}/>
-                {/*<BaseForm*/}
-                {/*    name='first'*/}
-                {/*    handleSubmit={handleSearchSubmit}*/}
-                {/*    handleChange={handleSearchChange}*/}
-                {/*    inputValue={searchValue}*/}
-                {/*/>*/}
-               <HotelsList hotels={hotels} />
+                <HotelFilter onPriceSelect={selectPriceFilter} onTitleSelect={selectTitleFilter} />
+                <HotelsList hotels={hotels} />
             </Main>
 
         </>

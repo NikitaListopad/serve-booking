@@ -138,8 +138,12 @@ const hotelImages = [
     'https://media.cntraveler.com/photos/5b97ea9959ff057868b4ea22/master/pass/The-Peninsula-Bangkok_2018_The-Peninsula-Bangkok_The-Pool-11.jpg'
 ]
 
+
 export class HotelMocks {
 
+    // constructor(number: number) {
+    //         this.hotels: this.generateHotelsArray(number)
+    // }
 
     getRandomData (dataArray: string[]): string {
         return dataArray[Math.floor(Math.random()*dataArray.length)];
@@ -171,8 +175,7 @@ export class HotelMocks {
             return hotels;
     }
 
-    getFilterHotels = (isBigPrice: boolean, isBigTitle: boolean): IHotel[] => {
-            const hotels = this.generateHotelsArray(14);
+    getFilterHotels = (isBigPrice: boolean, isBigTitle: boolean, hotels: IHotel[]): IHotel[] => {
 
             if (isBigPrice) {
                     return hotels.filter(item => Number(item.price) > 500);
