@@ -1,25 +1,19 @@
-import React, {FC} from "react";
+import React, {FC, HTMLAttributes} from "react";
 
-interface InputProps {
+interface InputProps extends HTMLAttributes<HTMLInputElement>{
+    label?: string;
     type: string;
     value?: string;
-    handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-    placeholder?: string;
-    className?: string;
-    label?: string;
 }
 
-const Input: FC<InputProps> = (props: InputProps) => {
+const Input: FC<InputProps> = (props) => {
 
-    const {type, handleChange, value, placeholder, className, label} = props;
+    const {label} = props;
 
     return (
         <label>
-            <input type={type || 'text'}
-                   value={value || ''}
-                   onChange={handleChange}
-                   placeholder={placeholder || ''}
-                   className={className}
+            <input
+                {...props}
             />
             {label}
         </label>

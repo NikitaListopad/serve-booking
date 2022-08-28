@@ -18,7 +18,7 @@ const BaseForm: FC<BaseFormProps> = (props: BaseFormProps) => {
     return (
         <div className={styles.formContainer}>
             <form name={name} onSubmit={handleSubmit}>
-                <Input type='search' value={inputValue} handleChange={handleChange} placeholder='Test' className={styles.input}/>
+                <Input type='search' value={inputValue} onChange={handleChange} placeholder='Test' className={styles.input}/>
                 <Button title='Submit' isDisabled={false} className={styles.btn}/>
             </form>
         </div>
