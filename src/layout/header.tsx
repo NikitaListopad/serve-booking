@@ -19,11 +19,13 @@ const Header: FC = () => {
                                 fill="currentcolor"></path>
                         </svg>
                     </div>
-                    <div className={styles.headerSearch}>
-                        NavBlock
-                    </div>
+                        <Button title='Search my dream'
+                                isDisabled={false}
+                                onClick={() => console.log('Clicked')}
+                                className={`${styles.authButton} ${styles.searchButton}`}
+                        />
                     <div>
-                        <Button title='Log in' isDisabled={false} onClick={() => console.log('Clicked')}/>
+                        <Button title='Log in' isDisabled={false} onClick={() => console.log('Clicked')} className={styles.authButton}/>
                     </div>
                 </div>
             </div>
