@@ -1,5 +1,6 @@
 import React, {FC} from "react";
 import styles from './header.module.scss';
+import Button from "../components/elements/button";
 
 
 const Header: FC = () => {
@@ -21,7 +22,9 @@ const Header: FC = () => {
                     <div className={styles.headerSearch}>
                         NavBlock
                     </div>
-                    <div>Auth block</div>
+                    <div>
+                        <Button title='Log in' isDisabled={false} onClick={() => console.log('Clicked')}/>
+                    </div>
                 </div>
             </div>
         </header>

@@ -140,11 +140,7 @@ const hotelImages = [
 
 
 export class HotelMocks {
-
-    // constructor(number: number) {
-    //         this.hotels: this.generateHotelsArray(number)
-    // }
-
+         
     getRandomData (dataArray: string[]): string {
         return dataArray[Math.floor(Math.random()*dataArray.length)];
     }

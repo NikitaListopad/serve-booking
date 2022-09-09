@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import HotelBlock from "./hotelBlock";
+import HotelBlock from "./hotelItem";
 import {IHotel} from "../types/IHotel";
 import styles from './hotelsList.module.scss';
 
@@ -15,7 +15,7 @@ const HotelsList: FC<HotelListProps> = (props: HotelListProps) => {
         <ul className={styles.hotelsListContainer}>
             {hotels.map(hotel => {
                 return (
-                    <HotelBlock hotel={hotel} />
+                    <HotelBlock hotel={hotel} key={hotel.id}/>
                 )
             })}
         </ul>

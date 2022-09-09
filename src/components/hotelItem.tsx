@@ -7,12 +7,12 @@ interface HotelPageProps {
     hotel: IHotel
 }
 
-const HotelBlock: FC<HotelPageProps> = (props: HotelPageProps) => {
+const HotelItem: FC<HotelPageProps> = (props: HotelPageProps) => {
 
-    const {title, price, photo, id} = props.hotel;
+    const {title, price, photo} = props.hotel;
 
     return (
-        <li className={styles.mainHotel} key={id}>
+        <li className={styles.mainHotel}>
             <img src={photo} alt="hotel" className={styles.hotelPhoto}/>
             <div className={styles.description}>
                 <div className={styles.hotelTitleContainer}>{title}</div>
@@ -23,4 +23,4 @@ const HotelBlock: FC<HotelPageProps> = (props: HotelPageProps) => {
 }
 
 
-export default HotelBlock;
+export default HotelItem;
