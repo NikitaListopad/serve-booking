@@ -1,19 +1,20 @@
-import React, {FC} from "react";
+import React, {FC, ReactNode} from "react";
 
 type ButtonProps = {
-    title: string,
+    title?: string,
     isDisabled: boolean,
     className?: string,
-    onClick: () => void;
+    onClick: () => void,
+    children?: ReactNode
 }
 
 const Button: FC<ButtonProps> = (props: ButtonProps) => {
 
-    const {title, isDisabled, className, onClick} = props;
+    const {title, isDisabled, className, onClick, children} = props;
 
     return (
            <button disabled={isDisabled} className={className} onClick={onClick}>
-               {title}
+               {title? title : children}
            </button>
     )
 }

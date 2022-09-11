@@ -1,9 +1,13 @@
-import React, {FC} from "react";
+import React, {FC, useState} from "react";
 import styles from './header.module.scss';
 import Button from "../components/elements/button";
+import ModalSearch from "../components/modalSearch";
 
+interface HeaderProps {
+    onSearchClick: () => void,
+}
 
-const Header: FC = () => {
+const Header: FC<HeaderProps> = ({onSearchClick}: HeaderProps) => {
 
     return (
         <header className={styles.mainHeader}>
@@ -21,7 +25,7 @@ const Header: FC = () => {
                     </div>
                         <Button title='Search my dream'
                                 isDisabled={false}
-                                onClick={() => console.log('Clicked')}
+                                onClick={onSearchClick}
                                 className={`${styles.authButton} ${styles.searchButton}`}
                         />
                     <div>
