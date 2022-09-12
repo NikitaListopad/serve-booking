@@ -5,6 +5,8 @@ import {HotelMocks} from "./mocks/hotelMocks";
 import HotelsList from "./components/hotelsList";
 import ModalSearch from "./components/modalSearch";
 import {EffectCallback} from "./types/EffectCallback";
+import {useActions, useTypedSelector} from "./hooks/reduxHooks";
+import {fetchHotels} from "./store/actions/hotelsAction";
 
 const mock = new HotelMocks()
 const mocks = mock.generateHotelsArray(15);
@@ -15,14 +17,19 @@ const App = () => {
     const [isTitleSelected, setIsTitleSelected] = useState(false);
     const [isModalHidden, setIsModalHidden] = useState(false);
 
+    const {fetchHotels} = useActions();
+
+    const {hotels} = useTypedSelector(state => state.hotels);
+
     useEffect((): EffectCallback => {
         if(isModalHidden) document.body.style.overflow = 'hidden'
 
         return () => document.body.style.overflow = 'visible'
     }, [isModalHidden]);
 
-
-    const hotels = useMemo(() => mock.getFilterHotels(isPriceSelected, isTitleSelected, mocks), [isPriceSelected, isTitleSelected]);
+    useEffect(() => {
+        fetchHotels();
+    }, [])
 
     return (
         <>
