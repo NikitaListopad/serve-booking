@@ -3,7 +3,6 @@ import Header from "./layout/header";
 import Main from "./layout/main";
 import {HotelMocks} from "./mocks/hotelMocks";
 import HotelsList from "./components/hotelsList";
-import HotelFilter from "./components/hotelsFilter";
 import ModalSearch from "./components/modalSearch";
 import {EffectCallback} from "./types/EffectCallback";
 
@@ -23,22 +22,12 @@ const App = () => {
     }, [isModalHidden]);
 
 
-    const selectPriceFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setIsPriceSelected(prev => !prev);
-    }
-
-    const selectTitleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {-
-
-        setIsTitleSelected(prev => !prev);
-    }
-
     const hotels = useMemo(() => mock.getFilterHotels(isPriceSelected, isTitleSelected, mocks), [isPriceSelected, isTitleSelected]);
 
     return (
         <>
             <Header onSearchClick={() => setIsModalHidden(true)}/>
             <Main>
-                {/*<HotelFilter onPriceSelect={selectPriceFilter} onTitleSelect={selectTitleFilter}/>*/}
                 <HotelsList hotels={hotels} />
             </Main>
             <ModalSearch isHidden={isModalHidden}  onCloseClick={() => setIsModalHidden(false)}/>

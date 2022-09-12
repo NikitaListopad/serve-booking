@@ -1,7 +1,7 @@
 .modalContainer {
   width: 100vw;
   height: 100vh;
-  background: rgba(149, 148, 147, 0.2);
+  background: rgba(149, 148, 147, 0.6);
   position: absolute;
   top: 0;
 
@@ -9,13 +9,22 @@
     width: 50%;
     height: 40%;
     background: #fff;
+    margin: 20% auto;
+    padding: 1rem;
+    border-radius: 20px;
 
     .modalHeader {
+      display: flex;
+
+      .modalTitle {
+        margin-left: auto;
+      }
 
       .modalCloseButton {
         border: none;
         background: none;
         cursor: pointer;
+        margin-left: auto;
       }
     }
   }
