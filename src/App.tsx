@@ -8,13 +8,9 @@ import {EffectCallback} from "./types/EffectCallback";
 import {useActions, useTypedSelector} from "./hooks/reduxHooks";
 import {fetchHotels} from "./store/actions/hotelsAction";
 
-const mock = new HotelMocks()
-const mocks = mock.generateHotelsArray(15);
 
 const App = () => {
 
-    const [isPriceSelected, setIsPriceSelected] = useState(false);
-    const [isTitleSelected, setIsTitleSelected] = useState(false);
     const [isModalHidden, setIsModalHidden] = useState(false);
 
     const {fetchHotels} = useActions();

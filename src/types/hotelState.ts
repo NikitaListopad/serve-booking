@@ -1,5 +1,7 @@
+import {IHotel} from "./IHotel";
+
 export interface HotelsState {
-    hotels: any[];
+    hotels: IHotel[];
     loading: boolean;
     error: null | string;
 }
@@ -16,7 +18,7 @@ interface FetchHotelsAction {
 
 interface FetchHotelsSuccessAction {
     type: HotelActionTypes.FETCH_HOTELS_SUCCESS,
-    payload: any[];
+    payload: IHotel[];
 }
 
 interface FetchHotelsErrorAction {
