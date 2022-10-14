@@ -1,10 +1,11 @@
-import React, {FC} from "react";
+import React, {FC, ReactNode} from "react";
 import styles from "./modelSearch.module.scss";
-import Button from "./elements/button";
+import Button from "../elements/button";
 
 interface ModalSearchProps {
     isHidden: boolean,
     onCloseClick: () => void;
+    children?: ReactNode
 }
 
 const ModalSearch: FC<ModalSearchProps> = (props: ModalSearchProps) => {

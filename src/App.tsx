@@ -1,9 +1,8 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from "./layout/header";
 import Main from "./layout/main";
-import {HotelMocks} from "./mocks/hotelMocks";
 import HotelsList from "./components/hotelsList";
-import ModalSearch from "./components/modalSearch";
+import ModalSearch from "./components/modal/modalSearch";
 import {EffectCallback} from "./types/EffectCallback";
 import {useActions, useTypedSelector} from "./hooks/reduxHooks";
 import {fetchHotels} from "./store/actions/hotelsAction";
