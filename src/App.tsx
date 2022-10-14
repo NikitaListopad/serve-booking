@@ -2,10 +2,11 @@ import React, {useEffect, useState} from 'react';
 import Header from "./layout/header";
 import Main from "./layout/main";
 import HotelsList from "./components/hotelsList";
-import ModalSearch from "./components/modal/modalSearch";
+import ModalContainer from "./components/modal/ModalContainer";
 import {EffectCallback} from "./types/EffectCallback";
 import {useActions, useTypedSelector} from "./hooks/reduxHooks";
 import {fetchHotels} from "./store/actions/hotelsAction";
+import Filters from "./components/filters";
 
 
 const App = () => {
@@ -32,7 +33,11 @@ const App = () => {
             <Main>
                 <HotelsList hotels={hotels} />
             </Main>
-            <ModalSearch isHidden={isModalHidden}  onCloseClick={() => setIsModalHidden(false)}/>
+            <ModalContainer
+                isHidden={isModalHidden}
+                onCloseClick={() => setIsModalHidden(false)}
+                children={<Filters />}
+            />
         </>
     )
 }

@@ -1,7 +1,7 @@
 import React, {FC, useState} from "react";
 import styles from './header.module.scss';
 import Button from "../components/elements/button";
-import ModalSearch from "../components/modal/modalSearch";
+import ModalContainer from "../components/modal/ModalContainer";
 
 interface HeaderProps {
     onSearchClick: () => void,
