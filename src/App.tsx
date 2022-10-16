@@ -7,6 +7,7 @@ import {EffectCallback} from "./types/EffectCallback";
 import {useActions, useTypedSelector} from "./hooks/reduxHooks";
 import {fetchHotels} from "./store/actions/hotelsAction";
 import Filters from "./components/filters";
+import {Route, Routes} from "react-router-dom";
 
 
 const App = () => {
@@ -30,12 +31,18 @@ const App = () => {
     return (
         <>
             <Header onSearchClick={() => setIsModalHidden(true)}/>
-            <Main>
-                <HotelsList hotels={hotels} />
-            </Main>
+                <Routes>
+                    <Route path='/' element={
+                        <Main>
+                            <HotelsList hotels={hotels} />
+                        </Main>
+                    } />
+            <Route path='test' element={<h1>Hello test</h1>} />
+            </Routes>
+
             <ModalContainer
-                isHidden={isModalHidden}
-                onCloseClick={() => setIsModalHidden(false)}
+            isHidden={isModalHidden}
+            onCloseClick={() => setIsModalHidden(false)}
                 children={<Filters />}
             />
         </>
