@@ -1,23 +1,20 @@
-import React, {FC, ReactNode} from "react";
+import React, {FC} from "react";
 import styles from "./ModalContainer.module.scss";
 import ModalHeader from "./ModalHeader";
+import {useActions, useTypedSelector} from "../../hooks/reduxHooks";
+import {closeModal} from "../../store/actions/modalActions";
 
-interface ModalContainerProps {
-    isHidden: boolean,
-    children?: ReactNode,
-    onCloseClick: () => void,
-}
+const ModalContainer: FC = () => {
 
-const ModalContainer: FC<ModalContainerProps> = (props: ModalContainerProps) => {
+    const {isOpen, children, title} = useTypedSelector(state => state.modal);
+    const {closeModal} = useActions();
 
-    const {isHidden, onCloseClick, children} = props;
-
-    const display = isHidden ? 'block' : 'none';
+    const display = isOpen ? 'block' : 'none';
 
     return (
         <div className={styles.modalContainer} style={{display}}>
             <div className={styles.modalWindow}>
-                <ModalHeader onCloseClick={onCloseClick} />
+                <ModalHeader onCloseClick={closeModal} title={title}/>
                 {children}
             </div>
         </div>

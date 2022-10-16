@@ -2,9 +2,8 @@ import React, {FC} from 'react';
 import styles from './main.module.scss'
 
 interface MainProps {
-    children: React.ReactNode
+    children?: React.ReactNode
 }
-
 
 const Main: FC<MainProps> = (props: MainProps) => {
 

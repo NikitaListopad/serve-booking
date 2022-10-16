@@ -3,16 +3,17 @@ import styles from "./ModalContainer.module.scss";
 import Button from "../elements/button";
 
 interface ModalHeaderProps {
-    onCloseClick: () => void;
+    onCloseClick: () => void,
+    title: string|null,
 }
 
 const ModalHeader: FC<ModalHeaderProps> = (props) => {
 
-    const {onCloseClick} = props;
+    const {onCloseClick, title} = props;
 
     return (
         <div className={styles.modalHeader}>
-            <h3 className={styles.modalTitle}>Select filters</h3>
+            <h3 className={styles.modalTitle}>{title}</h3>
             <Button isDisabled={false} onClick={onCloseClick} className={styles.modalCloseButton}>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
