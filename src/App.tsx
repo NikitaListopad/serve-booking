@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import Header from "./layout/header";
 import Main from "./layout/main";
 import HotelsList from "./components/hotelsList";
@@ -6,23 +6,21 @@ import ModalContainer from "./components/modal/ModalContainer";
 import {EffectCallback} from "./types/EffectCallback";
 import {useActions, useTypedSelector} from "./hooks/reduxHooks";
 import {fetchHotels} from "./store/actions/hotelsAction";
-import Filters from "./components/filters";
 import {Route, Routes} from "react-router-dom";
 
 
 const App = () => {
 
-    const [isModalHidden, setIsModalHidden] = useState(false);
-
     const {fetchHotels} = useActions();
 
     const {hotels} = useTypedSelector(state => state.hotels);
+    const {isOpen} = useTypedSelector(state => state.modal);
 
     useEffect((): EffectCallback => {
-        if(isModalHidden) document.body.style.overflow = 'hidden'
+        if(isOpen) document.body.style.overflow = 'hidden'
 
         return () => document.body.style.overflow = 'visible'
-    }, [isModalHidden]);
+    }, [isOpen]);
 
     useEffect(() => {
         fetchHotels();
@@ -30,7 +28,7 @@ const App = () => {
 
     return (
         <>
-            <Header onSearchClick={() => setIsModalHidden(true)}/>
+            <Header />
                 <Routes>
                     <Route path='/' element={
                         <Main>
@@ -40,11 +38,7 @@ const App = () => {
             <Route path='test' element={<h1>Hello test</h1>} />
             </Routes>
 
-            <ModalContainer
-            isHidden={isModalHidden}
-            onCloseClick={() => setIsModalHidden(false)}
-                children={<Filters />}
-            />
+            <ModalContainer />
         </>
     )
 }
