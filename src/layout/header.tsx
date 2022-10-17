@@ -1,16 +1,12 @@
 import React, {FC} from "react";
 import styles from './header.module.scss';
 import Button from "../components/elements/button";
-import {useActions} from "../hooks/reduxHooks";
-import Filters from "../components/filters";
 
-const Header: FC = () => {
+interface HeaderProps {
+    onFiltersClick: () => void;
+}
 
-    const {setIsModalOpen} = useActions();
-
-    const onSearchClick = () => {
-        setIsModalOpen('Search my dream', <Filters />)
-    }
+const Header: FC<HeaderProps> = ({onFiltersClick}) => {
 
     return (
         <header className={styles.mainHeader}>
@@ -28,7 +24,7 @@ const Header: FC = () => {
                     </div>
                         <Button title='Search my dream'
                                 isDisabled={false}
-                                onClick={onSearchClick}
+                                onClick={onFiltersClick}
                                 className={`${styles.authButton} ${styles.searchButton}`}
                         />
                     <div>
