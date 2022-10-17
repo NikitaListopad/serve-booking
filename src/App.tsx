@@ -7,6 +7,7 @@ import {EffectCallback} from "./types/EffectCallback";
 import {useActions, useTypedSelector} from "./hooks/reduxHooks";
 import {fetchHotels} from "./store/actions/hotelsAction";
 import {Route, Routes} from "react-router-dom";
+import HotelPage from "./components/hotelPage";
 
 
 const App = () => {
@@ -29,15 +30,16 @@ const App = () => {
     return (
         <>
             <Header />
-                <Routes>
-                    <Route path='/' element={
-                        <Main>
+                <Main>
+                    <Routes>
+                        <Route path='/' element={
                             <HotelsList hotels={hotels} />
-                        </Main>
-                    } />
-            <Route path='test' element={<h1>Hello test</h1>} />
-            </Routes>
-
+                        } />
+                        <Route path='hotel/:id?' element={
+                            <HotelPage />
+                        } />
+                    </Routes>
+                </Main>
             <ModalContainer />
         </>
     )
