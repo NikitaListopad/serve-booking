@@ -8,6 +8,6 @@ export default class HotelsHttp {
     }
 
     static fetchTargetHotel(id: string): Promise<AxiosResponse<IHotel>> {
-        return api.get<IHotel>(`/hotels/${id}`)
+        return api.get<IHotel>(`/hotels/target/${id}`)
     }
 }

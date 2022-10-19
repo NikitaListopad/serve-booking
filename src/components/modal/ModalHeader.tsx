@@ -4,7 +4,7 @@ import Button from "../elements/button";
 
 interface ModalHeaderProps {
     onClose: () => void,
-    title: string|null,
+    title: string,
 }
 
 const ModalHeader: FC<ModalHeaderProps> = (props) => {

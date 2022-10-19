@@ -1,13 +1,26 @@
-import React, {FC} from "react";
-import {useTypedSelector} from "../hooks/reduxHooks";
+import React, {FC, useEffect} from "react";
+import {useActions, useTypedSelector} from "../hooks/reduxHooks";
+import {fetchCurrentHotel} from "../store/actions/hotelsAction";
+import {useParams} from "react-router-dom";
+import styles from "./hotelPage.module.scss";
 
 const HotelPage: FC = () => {
 
-    const {currentHotel} = useTypedSelector(state => state.hotels);
+    const {currentHotel, loading} = useTypedSelector(state => state.hotels);
+
+    const {fetchCurrentHotel} = useActions();
+
+    const {id} = useParams();
+
+    useEffect(() => {
+        if (id) fetchCurrentHotel(id);
+    }, [])
+
+    if (loading) return <div>Please wait</div>
 
     return (
-        <div>
-            <img src={currentHotel?.photo} alt=""/>
+        <div className={styles.hotelPageContainer}>
+            <img src={currentHotel?.photo} alt="" className={styles.hotelImage}/>
             <div>
                 <span>{currentHotel?.title}</span>
                 <span>{currentHotel?.price}</span>

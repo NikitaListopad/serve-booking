@@ -1,9 +1,12 @@
-import {createBrowserRouter} from "react-router-dom";
-import App from "./App";
+import {createBrowserRouter, createRoutesFromElements, Route} from "react-router-dom";
+import HotelsList from "./components/hotelsList";
+import React from "react";
 
-export const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <App />,
-    },
-]);
+const router = createBrowserRouter(createRoutesFromElements(
+    <Route path='/'
+           element={<HotelsList/>}
+    >
+    </Route>
+))
+
+export default router

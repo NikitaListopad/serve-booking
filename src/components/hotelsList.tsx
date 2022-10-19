@@ -1,15 +1,17 @@
-import React, {FC} from "react";
+import React, {FC, useEffect} from "react";
 import HotelBlock from "./hotelItem";
-import {IHotel} from "../types/IHotel";
 import styles from './hotelsList.module.scss';
+import {useActions, useTypedSelector} from "../hooks/reduxHooks";
 
-interface HotelListProps {
-    hotels: IHotel[];
-}
+const HotelsList: FC = () => {
 
-const HotelsList: FC<HotelListProps> = (props: HotelListProps) => {
+    const {hotels} = useTypedSelector(state => state.hotels);
 
-    const {hotels} = props;
+    const {fetchHotels} = useActions();
+
+    useEffect(() => {
+        fetchHotels();
+    }, []);
 
     return (
         <ul className={styles.hotelsListContainer}>

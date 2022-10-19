@@ -1,14 +1,26 @@
-import React, {FC} from "react";
+import React, {FC, useEffect, useState} from "react";
 import styles from './header.module.scss';
 import Button from "../components/elements/button";
+import {EffectCallback} from "../types/EffectCallback";
+import Filters from "../components/filters";
+import Modal from "../components/modal/Modal";
 
-interface HeaderProps {
-    onFiltersClick: () => void;
-}
+const Header: FC = () => {
 
-const Header: FC<HeaderProps> = ({onFiltersClick}) => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    useEffect((): EffectCallback => {
+        if(isModalOpen) document.body.style.overflow = 'hidden'
+
+        return () => document.body.style.overflow = 'visible'
+    }, [isModalOpen]);
+
+    const onFiltersClick = () => {
+        setIsModalOpen(true)
+    }
 
     return (
+        <>
         <header className={styles.mainHeader}>
             <div className={styles.headerLayout}>
                 <div className={styles.headerContent}>
@@ -37,6 +49,8 @@ const Header: FC<HeaderProps> = ({onFiltersClick}) => {
                 </div>
             </div>
         </header>
+            <Modal isOpen={isModalOpen} title='Select filters' children={<Filters />} onClose={() => setIsModalOpen(false)}/>
+        </>
     )
 };
 

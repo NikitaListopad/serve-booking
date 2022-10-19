@@ -24,7 +24,3 @@ export const fetchCurrentHotel = (id: string) => async (dispatch: Dispatch) => {
       dispatch({type: HotelActionTypes.FETCH_CURRENT_HOTEL_ERROR, payload: 'Temporary error'})
   }
 }
-// TODO REMOVE MOCK FUNCTION
-export const setCurrentHotel = (hotel: IHotel) => (dispatch: Dispatch) => {
-    dispatch({type: HotelActionTypes.FETCH_CURRENT_HOTEL_SUCCESS, payload: hotel})
-}
