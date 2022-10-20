@@ -2,7 +2,7 @@ import React, {FC, useEffect} from "react";
 import {useActions, useTypedSelector} from "../hooks/reduxHooks";
 import {fetchCurrentHotel} from "../store/actions/hotelsAction";
 import {useParams} from "react-router-dom";
-import styles from "./hotelPage.module.scss";
+import styles from "./HotelPage.module.scss";
 
 const HotelPage: FC = () => {
 

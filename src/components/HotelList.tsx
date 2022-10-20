@@ -1,9 +1,9 @@
 import React, {FC, useEffect} from "react";
-import HotelBlock from "./hotelItem";
-import styles from './hotelsList.module.scss';
+import HotelBlock from "./HotelItem";
+import styles from './HotelsList.module.scss';
 import {useActions, useTypedSelector} from "../hooks/reduxHooks";
 
-const HotelsList: FC = () => {
+const HotelList: FC = () => {
 
     const {hotels} = useTypedSelector(state => state.hotels);
 
@@ -24,4 +24,4 @@ const HotelsList: FC = () => {
     )
 }
 
-export default HotelsList;
+export default HotelList;

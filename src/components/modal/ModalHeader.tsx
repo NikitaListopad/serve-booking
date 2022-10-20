@@ -1,6 +1,6 @@
 import React, {FC} from "react";
 import styles from "./ModalContainer.module.scss";
-import Button from "../elements/button";
+import Button from "../elements/Button";
 
 interface ModalHeaderProps {
     onClose: () => void,

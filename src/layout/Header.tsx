@@ -1,10 +1,10 @@
 import React, {FC, useEffect, useState} from "react";
-import styles from './header.module.scss';
-import Button from "../components/elements/button";
+import styles from './Header.module.scss';
 import {EffectCallback} from "../types/EffectCallback";
-import Filters from "../components/filters";
+import Filters from "../components/Filters";
 import Modal from "../components/modal/Modal";
 import CustomLink from "../components/elements/CustomLink";
+import Button from "../components/elements/Button";
 
 const Header: FC = () => {
 

@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import styles from './hotelItem.module.scss'
+import styles from './HotelItem.module.scss'
 import {IHotel} from "../types/IHotel";
 import CustomLink from "./elements/CustomLink";
 

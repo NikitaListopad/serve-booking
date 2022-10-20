@@ -1,10 +1,10 @@
 import {createBrowserRouter, createRoutesFromElements, Route} from "react-router-dom";
-import HotelsList from "./components/hotelsList";
+import HotelList from "./components/HotelList";
 import React from "react";
 
 const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/'
-           element={<HotelsList/>}
+           element={<HotelList/>}
     >
     </Route>
 ))
