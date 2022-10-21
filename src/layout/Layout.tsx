@@ -11,7 +11,7 @@ const Layout = () => {
                 <Outlet />
             </Main>
             <footer>
-                it is a footer
+                It is footer
             </footer>
         </>
     )
