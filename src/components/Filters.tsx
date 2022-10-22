@@ -1,14 +1,14 @@
 import React, {FC} from 'react';
+import DatePickerFilter from "./DatePickerFilter";
 
 
 
 const Filters: FC = () => {
 
-
     return (
-       <div>
-           Filters
-       </div>
+        <div>
+            <DatePickerFilter />
+        </div>
     )
 }
 

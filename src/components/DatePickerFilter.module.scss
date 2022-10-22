@@ -1,0 +1,23 @@
+.datesContainer {
+  display: flex;
+  flex-direction: column;
+
+  .datesTitle {
+    margin-bottom: 5px;
+  }
+
+  .dateBlock {
+    margin: 5px 0;
+    max-width: 15rem;
+
+    svg:first-child {
+        color: #add781;
+    }
+  }
+
+  .dateBlock:last-child{
+    svg {
+      color: #c25b5b;
+    }
+  }
+}
