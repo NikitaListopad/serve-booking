@@ -1,0 +1,23 @@
+.priceContainer {
+  margin-left: 10%;
+  max-width: 250px;
+
+  .priceTitle {
+
+  }
+
+  .inputContainer {
+    display: flex;
+    margin-top: 5px;
+
+    .inputField {
+      margin: 5px 0;
+      max-width: 15rem;
+    }
+  }
+
+  .priceSlider {
+    margin: 0 12px;
+    width: 90%;
+  }
+}
