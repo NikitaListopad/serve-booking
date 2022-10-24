@@ -12,7 +12,7 @@ function valuetext(value: number) {
 
 const PriceFilter: FC = () => {
 
-    const [value, setValue] = useState([0, 0]);
+    const [value, setValue] = useState<number[]>([0, 0]);
 
     const inputMinPriceRef = useRef<HTMLInputElement>(null);
     const inputMaxPriceRef = useRef<HTMLInputElement>(null);
@@ -23,15 +23,9 @@ const PriceFilter: FC = () => {
         setValue([value[0], findHighest()])
     },[hotels])
 
-    const findHighest = (): number => {
-
-        const test = hotels.reduce((price, hotel) => {
-
-            return Number(price) < Number(hotel.price) ? Number(hotel.price) : price
-        }, 0)
-
-        return Number(test);
-    }
+    const findHighest = (): number =>
+        hotels.reduce((price, hotel) =>
+        Number(price) < Number(hotel.price) ? Number(hotel.price) : price, 0);
 
     const onPriceChange = (
         event: Event,
