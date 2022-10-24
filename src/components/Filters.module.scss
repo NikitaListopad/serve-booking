@@ -1,0 +1,25 @@
+.filtersContainer {
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+
+  .rowFilters {
+    display: flex;
+  }
+
+  .successButton {
+    height: 2rem;
+    margin: 0 auto;
+    border-radius: 3px;
+    border: none;
+    width: 30%;
+    background-color: #d3cecc;
+    margin-top: auto;
+  }
+
+  .successButton:hover {
+    background-color: #c2b9b5;
+    border: 1px solid #b4aca8;
+    cursor: pointer;
+  }
+}

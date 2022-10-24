@@ -50,7 +50,11 @@ const Header: FC = () => {
                 </div>
             </div>
         </header>
-            <Modal isOpen={isModalOpen} title='Select filters' children={<Filters />} onClose={() => setIsModalOpen(false)}/>
+            <Modal isOpen={isModalOpen}
+                   title='Select filters'
+                   children={<Filters />}
+                   onClose={() => setIsModalOpen(false)}
+            />
         </>
     )
 };

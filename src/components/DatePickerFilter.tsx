@@ -1,9 +1,9 @@
 import TextField from '@mui/material/TextField';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import React, {FC} from "react";
 import {DatePicker} from "@mui/x-date-pickers";
 import styles from './DatePickerFilter.module.scss'
+import {AdapterDateFns} from "@mui/x-date-pickers/AdapterDateFns";
 
 const DatePickerFilter: FC = () => {
 
@@ -13,7 +13,7 @@ const DatePickerFilter: FC = () => {
     return (
         <div className={styles.datesContainer}>
             <span className={styles.datesTitle}>Select travel dates</span>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <DatePicker
                     disablePast
                     className={styles.dateBlock}
@@ -26,6 +26,7 @@ const DatePickerFilter: FC = () => {
                 />
                 <DatePicker
                     className={styles.dateBlock}
+                    disablePast
                     label="End date"
                     value={endDate}
                     onChange={(newValue) => {
